@@ -1,0 +1,10 @@
+Employee.objects.create(emp_id="emp_6",emp_name="arun",
+designation="hr",salary="404443",email="aru@gmail.com",
+experience="3")
+
+
+retriving objects
+
+qs=Employee.objects.all()
+
+qs=Employee.objects.filter(salary__gt=450000
