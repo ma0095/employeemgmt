@@ -1,10 +1,18 @@
-Employee.objects.create(emp_id="emp_6",emp_name="arun",
-designation="hr",salary="404443",email="aru@gmail.com",
-experience="3")
+Employee.objects.create(emp_id="emp_7",emp_name="kavi",
+designation="teacher",salary="440000",email="kavi@gmail.com",
+experience="2")
 
 
 retriving objects
 
 qs=Employee.objects.all()
 
-qs=Employee.objects.filter(salary__gt=450000
+FILTER METHOD
+
+qs=Employee.objects.filter(salary__gte=440000)
+
+DESIGNATION AND SALARY
+qs=Employee.objects.filter(designation="developer",salary__gt=440000)
+
+>get
+qs=Employee.objects.get(emp_id="emp_2")
