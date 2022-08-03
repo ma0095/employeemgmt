@@ -1,0 +1,34 @@
+{%extends 'base.html'%}
+{%block body_block%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <table class="table">
+                <tr>
+                    <th>Employee Id</th>
+                    <th>Employee Name</th>
+                    <th>Email</th>
+                    <th>Action</th>
+                </tr>
+                {%for emp in employees%}
+                <tr>
+                    <td>{{emp.emp_id}}</td>
+                    <td>{{emp.emp_name}}</td>
+                    <td>{{emp.email}}</td>
+                    <td>
+                        <a href="{%url 'emp-detail' emp.emp_id%}">View</a>
+                        <a href="{%url 'emp-edit' emp.emp_id%}">Edit</a>
+                        <a href="{%url 'emp-remove' emp.emp_id%}">Delete</a>
+                    </td>
+                </tr>
+
+                {%endfor%}
+            </table>
+        </div>
+        <div class="col-2"></div>
+    </div>
+</div>
+
+{%endblock%}

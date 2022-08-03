@@ -1,8 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic import View
+from django.contrib import messages
+from django.utils.decorators import method_decorator
 from calculator.forms import OperationForm
 
+
 # #Create your views here.
+
 class HomeView(View):
     def get(self,request):
         return render(request,"calc-home.html")
@@ -25,6 +29,7 @@ class AddView(View):
             return render(request,"add.html",{"res":result,"form":form})
         else:
             return render(request,"add.html",{"form":form})
+
 class SubView(View):
     def get(self,request):
         form = OperationForm()
@@ -38,10 +43,11 @@ class SubView(View):
         if form.is_valid():
             n1=form.cleaned_data.get("num1")
             n2=form.cleaned_data.get("num2")
-            result=n1-n2
+            result=int(n1)-int(n2)
             return render(request,"sub.html",{"res":result,"form":form})
         else:
             return render(request,"sub.html", {"form": form})
+
 
 class MultiplicationView(View):
     def get(self,request):
@@ -62,7 +68,6 @@ class MultiplicationView(View):
             return render(request,"multiplication.html",{"form":form})
 
 
-
 class DivitionView(View):
     def get(self,request):
         form = OperationForm()
@@ -81,6 +86,7 @@ class DivitionView(View):
         else:
             return render(request,"divition.html", {"form": form})
 
+
 class WordcountView(View):
     def get(self,request):
         return render(request,"wordcount.html",)
@@ -95,6 +101,7 @@ class WordcountView(View):
                  wc[w]+=1
         print(wc)
         return render(request,"wordcount.html",{"res":wc})
+
 
 class PrimeView(View):
     def get(self,request):

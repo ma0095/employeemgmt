@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+{%load static%}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{%static 'css/style.css'%}">
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+<form action="" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <div class="row">
+        <div class="col-4">
+            <div class="card" style="width: 18rem;">
+  <img src="{%static 'images/profile.png'%}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text"></p>
+  </div>
+</div>
+            <input type="file" name="profile_pic" >
+        </div>
+        <div class="col-4">
+            <input type="text" name="emp_name" id="id_emp_name" placeholder="enter name">
+            <input type="text" name="emp_id" id="id_emp_id" placeholder="enter id">
+            <input type="text" name="designation" id="id_designation" placeholder="enter designation">
+        </div>
+        <div class="col-4">
+            <p>
+              <input type="text" name="salary" id="id_salary" placeholder="enter salary">
+              <input type="email" name="email" id="id_email" placeholder="enter email">
+              <input type="text" name="experience" id="id_experience" placeholder="enter exp">
+      </p>  </div>
+    </div>
+       <div class="row">
+        <div class="col-4"></div>
+        <div class="col-4">
+                <input type="submit">
+
+        </div>
+        <div class="col-4"></div>
+    </div>
+
+</form>
+
+</body>
+<!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</html>

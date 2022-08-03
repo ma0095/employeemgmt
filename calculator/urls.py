@@ -1,5 +1,7 @@
 from django.urls import path
 from calculator import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns=[
     path("home", views.HomeView.as_view(),name="calc-home"),
@@ -12,4 +14,4 @@ urlpatterns=[
 
 
 
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
