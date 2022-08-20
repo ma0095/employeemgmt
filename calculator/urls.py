@@ -13,5 +13,4 @@ urlpatterns=[
     path("prime",views.PrimeView.as_view(),name="calc-prime"),
 
 
-
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
