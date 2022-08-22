@@ -100,7 +100,7 @@ class EmployeeCreateView(View):
             # )
             messages.success(request, "profile added successfully")
 #           return render(request,"emp-add.html",{"form":form})
-            return redirect("add-emp")
+            return redirect("emp-list")
 
         else:
             messages.error(request,"profile not added")
@@ -113,14 +113,14 @@ class EmployeeListView(View):
         return render(request,"emp-list.html",{"employees":qs})
 
 
-@method_decorator(signin_requied,name="dispatch")
+
 class EmployeeDetailView(View):
     def get(self,request,*args,**kwargs):
         qs=Employee.objects.get(emp_id=kwargs.get("emp_id"))
         return render(request,"emp-detail.html",{"employee":qs})
 
 
-@method_decorator(signin_requied,name="dispatch")
+
 class EmployeeEditView(View):
     def get(self,request,*args,**kwargs):
         eid=kwargs.get("e_id")
@@ -146,12 +146,12 @@ def remove_employee(request,*args,**kwargs):
     eid = kwargs.get("e_id")
     employee = Employee.objects.get(emp_id=eid)
     employee.delete()
-    messages.success(request, "profile updated successfully")
+    messages.success(request,"profile updated successfully")
     return redirect("emp-list")
 
 
 @signin_requied
-def index(request):
+def index(request,*args,**kwargs):
     return render(request,"base.html")
 
 
